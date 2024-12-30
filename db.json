@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Laptop",
+      "price": 1000,
+      "category": "Electronics",
+      "availability": true,
+      "description": "A high-performance laptop for professionals."
+    },
+    {
+      "id": "2",
+      "name": "Smartphone",
+      "price": 500,
+      "category": "Electronics",
+      "availability": false,
+      "description": "A smartphone with great features and performance."
+    },
+    {
+      "id": "3",
+      "name": "Headphones",
+      "price": 100,
+      "category": "Accessories",
+      "availability": true,
+      "description": "Noise-cancelling headphones for music lovers."
+    },
+    {
+      "id": "4",
+      "name": "Desk Chair",
+      "price": 200,
+      "category": "Furniture",
+      "availability": true,
+      "description": "Ergonomic chair for your workspace."
+    }
+  ]
+}

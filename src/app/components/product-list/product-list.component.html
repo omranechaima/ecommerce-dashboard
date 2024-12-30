@@ -1,0 +1,42 @@
+<h1>Welcome to My E-Commerce App</h1>
+
+<h1>Product List</h1>
+
+<!-- Search Bar -->
+<input
+  type="text"
+  placeholder="Search products by name or category"
+  [(ngModel)]="searchQuery"
+  (ngModelChange)="filterProducts()"
+/>
+
+<!-- Sorting Dropdown -->
+<select [(ngModel)]="sortOrder" (change)="sortProducts()">
+  <option value="priceAsc">Sort by Price: Low to High</option>
+  <option value="priceDesc">Sort by Price: High to Low</option>
+</select>
+
+<!-- Product Table -->
+<nz-table [nzBordered]="true">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Availability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of filteredProducts">
+      <td>{{ product.name }}</td>
+      <td>{{ product.price | currency }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.availability ? 'In Stock' : 'Out of Stock' }}</td>
+      <button nz-button nzType="primary" (click)="openAddToCartModal(product)" style="margin: 10px;">
+        <i nz-icon nzType="plus" style="font-size: 20px; color: white;"></i>
+        </button>
+    </tr>
+  </tbody>
+</nz-table>
+<button nz-button nzType="primary" (click)="openAddProductModal()">Add Product</button>
+
