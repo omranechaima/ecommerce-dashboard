@@ -9,6 +9,7 @@ import { CartService } from '../services/cart.service'; // Import CartService
 })
 export class AppComponent implements OnInit {
   cartItemCount: number = 0;
+  hoveredItem: string | null = null;
 
   constructor(private cartService: CartService) {}
 

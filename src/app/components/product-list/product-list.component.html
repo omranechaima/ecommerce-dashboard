@@ -1,20 +1,33 @@
 <h1>Welcome to My E-Commerce App</h1>
 
-<h1>Product List</h1>
 
-<!-- Search Bar -->
-<input
-  type="text"
-  placeholder="Search products by name or category"
-  [(ngModel)]="searchQuery"
-  (ngModelChange)="filterProducts()"
-/>
 
-<!-- Sorting Dropdown -->
-<select [(ngModel)]="sortOrder" (change)="sortProducts()">
-  <option value="priceAsc">Sort by Price: Low to High</option>
-  <option value="priceDesc">Sort by Price: High to Low</option>
-</select>
+<div class="search-sorting-items">
+  <!-- Search Bar -->
+  <div class="search-bar" >
+    <nz-input-group nzSearch [nzSuffix]="suffixTemplate" style="width: 400px;">
+      <input 
+        type="text" 
+        nz-input 
+        placeholder="Search products by name or category" 
+        [(ngModel)]="searchQuery" 
+        (ngModelChange)="filterProducts()"
+      />
+    </nz-input-group>
+  </div>
+
+  <ng-template #suffixTemplate>
+    <i nz-icon nzType="search"></i>
+  </ng-template>
+
+  <!-- Sorting Dropdown -->
+  <div >
+    <nz-select [(ngModel)]="sortOrder" (ngModelChange)="sortProducts()" style="width: 200px;">
+      <nz-option nzValue="priceAsc" nzLabel="Sort by Price: Low to High"></nz-option>
+      <nz-option nzValue="priceDesc" nzLabel="Sort by Price: High to Low"></nz-option>
+    </nz-select>
+  </div>
+</div>
 
 <!-- Product Table -->
 <nz-table [nzBordered]="true">
@@ -32,11 +45,11 @@
       <td>{{ product.price | currency }}</td>
       <td>{{ product.category }}</td>
       <td>{{ product.availability ? 'In Stock' : 'Out of Stock' }}</td>
-      <button nz-button nzType="primary" (click)="openAddToCartModal(product)" style="margin: 10px;">
+      <button nz-button class="add-button" (click)="openAddToCartModal(product)" style="margin: 10px;">
         <i nz-icon nzType="plus" style="font-size: 20px; color: white;"></i>
         </button>
     </tr>
   </tbody>
 </nz-table>
-<button nz-button nzType="primary" (click)="openAddProductModal()">Add Product</button>
+<button nz-button (click)="openAddProductModal()" class="add-button">Add Product</button>
 

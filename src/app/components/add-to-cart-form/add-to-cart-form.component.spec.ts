@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddToCartFormComponentComponent } from './add-to-cart-form-component.component';
+import { AddToCartFormComponent } from './add-to-cart-form.component';
 
 describe('AddToCartFormComponentComponent', () => {
-  let component: AddToCartFormComponentComponent;
-  let fixture: ComponentFixture<AddToCartFormComponentComponent>;
+  let component: AddToCartFormComponent;
+  let fixture: ComponentFixture<AddToCartFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddToCartFormComponentComponent ]
+      declarations: [ AddToCartFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddToCartFormComponentComponent);
+    fixture = TestBed.createComponent(AddToCartFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

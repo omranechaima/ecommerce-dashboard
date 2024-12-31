@@ -4,9 +4,25 @@
     <div class="logo" style="float: left; color: white; font-size: 20px;">
       E-Commerce Dashboard
     </div>
-    <ul nz-menu nzTheme="dark" nzMode="horizontal" style="float: right; line-height: 64px; display: flex; gap: 20px;list-style-type: none;">
-      <li nz-menu-item><a routerLink="/products">Products</a></li>
-      <li nz-menu-item>
+   
+    <ul nz-menu nzTheme="dark" nzMode="horizontal" class="nav-bar" >
+      <li
+        nz-menu-item
+        [routerLinkActive]="'active-menu-item'"
+        [ngClass]="{ 'hovered': hoveredItem === 'products', 'nav-button': true }"
+        (mouseenter)="hoveredItem = 'products'"
+        (mouseleave)="hoveredItem = null"
+      >
+        <a routerLink="/products">Products</a>
+      </li>
+      
+      <li
+        nz-menu-item
+        [routerLinkActive]="'active-menu-item'"
+        [ngClass]="{ 'hovered': hoveredItem === 'cart' , 'nav-button': true}"
+        (mouseenter)="hoveredItem = 'cart'"
+        (mouseleave)="hoveredItem = null"
+      >
         <nz-badge [nzCount]="cartItemCount" [nzOverflowCount]="99">
           <a routerLink="/cart">
             <i nz-icon nzType="shopping-cart" style="font-size: 24px; color: white;"></i>
@@ -14,6 +30,7 @@
         </nz-badge>
       </li>
     </ul>
+    
   </nz-header>
 
   <!-- Main Content Section -->

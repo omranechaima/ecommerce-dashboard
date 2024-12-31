@@ -14,10 +14,10 @@ import { AddProductFormComponent } from '../add-product-form/add-product-form.co
 })
 export class ProductListComponent implements OnInit {
 
-  products: any[] = []; // Original product data
-  filteredProducts: any[] = []; // Products after filtering/sorting
-  searchQuery: string = ''; // Search query
-  sortOrder: string = 'priceAsc'; // Default sorting order
+  products: any[] = []; 
+  filteredProducts: any[] = []; 
+  searchQuery: string = ''; 
+  sortOrder: string = 'priceAsc'; 
 
   constructor(
     private productService: ProductService,
@@ -79,11 +79,12 @@ export class ProductListComponent implements OnInit {
       nzTitle: 'Add Product',
       nzContent: AddProductFormComponent,
       nzOnOk: (instance: AddProductFormComponent) => {
-        if (instance.form.valid) {
+        if (instance.validateForm()) {
           const newProduct = instance.form.value;
           this.addProduct(newProduct);
-          modal.destroy();
+          return true; 
         }
+        return false; 
       }
     });
   }
@@ -91,7 +92,7 @@ export class ProductListComponent implements OnInit {
   addProduct(product: any): void {
     this.productService.addProduct(product).subscribe(
       (response) => {
-        this.products.push(response); // Update the product list with the newly added product
+        this.products.push(response); 
         this.filteredProducts = [...this.products];
         console.log('Product added:', response);
       },
