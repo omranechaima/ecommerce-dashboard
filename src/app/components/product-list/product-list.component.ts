@@ -3,7 +3,7 @@ import { ProductService } from '../../../services/product.service';
 import { CartService } from '../../../services/cart.service'; 
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { AddToCartFormComponent} from '../add-to-cart-form/add-to-cart-form.component'; // Badge module for cart count
+import { AddToCartFormComponent} from '../add-to-cart-form/add-to-cart-form.component'; 
 import { AddProductFormComponent } from '../add-product-form/add-product-form.component';
 
 
@@ -18,6 +18,7 @@ export class ProductListComponent implements OnInit {
   filteredProducts: any[] = []; 
   searchQuery: string = ''; 
   sortOrder: string = 'priceAsc'; 
+  loading = true; 
 
   constructor(
     private productService: ProductService,
@@ -31,13 +32,18 @@ export class ProductListComponent implements OnInit {
   }
 
   fetchProducts(): void {
+    this.loading = true; 
     this.productService.getProducts().subscribe(
       (data) => {
         this.products = data;
-        this.filteredProducts = [...this.products]; // Initialize filtered products
+        this.filteredProducts = [...this.products];
+        setTimeout(() => {
+          this.loading = false;  
+        }, 500); 
       },
       (error) => {
         console.error('Error fetching products:', error);
+        this.loading = false;
       }
     );
   }
@@ -48,15 +54,15 @@ export class ProductListComponent implements OnInit {
       product.name.toLowerCase().includes(query) ||
       product.category.toLowerCase().includes(query)
     );
-    this.sortProducts(); // Apply sorting after filtering
+    this.sortProducts(); 
   }
 
   sortProducts(): void {
     this.filteredProducts.sort((a, b) => {
       if (this.sortOrder === 'priceAsc') {
-        return a.price - b.price; // Low to High
+        return a.price - b.price; 
       } else if (this.sortOrder === 'priceDesc') {
-        return b.price - a.price; // High to Low
+        return b.price - a.price; 
       }
       return 0;
     });

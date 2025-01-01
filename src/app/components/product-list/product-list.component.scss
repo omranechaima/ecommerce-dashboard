@@ -1,13 +1,62 @@
+.search-bar{
+    width: 50%
+}
+
+.sort-bar{
+
+    width: 15%
+}
 .search-sorting-items{
     display: flex;
     justify-content: center;
     gap: 4px;
     margin: 20px;
+   
 }
 
 .add-button{
-    margin: 20px;
+    margin:10px;
     background-color: #001529;
     border-radius: 4px;
     color: white;
+  }
+
+  
+  .table-container {
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch; 
+    //width: 90%;
+  }
+  
+
+  nz-table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  nz-table th, nz-table td {
+    padding: 12px; 
+    text-align: left;
+  }
+
+  
+@media (max-width: 768px) {
+    nz-table th, nz-table td {
+      font-size: 12px; 
+    }
+    
+    .add-button {
+      width: 80%;  
+     margin: 5px;
+    }
+
+    .table-container{
+        text-align: -webkit-center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    nz-table th, nz-table td {
+      font-size: 10px;
+    }
   }

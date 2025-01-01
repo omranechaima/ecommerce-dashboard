@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   `
 })
 export class AddToCartFormComponent implements OnInit {
-  @Input() product: any; // Product passed from the parent component
+  @Input() product: any; 
   form!: FormGroup;
 
   constructor(private fb: FormBuilder) {}

@@ -6,7 +6,8 @@
       "price": 1000,
       "category": "Electronics",
       "availability": true,
-      "description": "A high-performance laptop for professionals."
+      "description": "A high-performance laptop for professionals.",
+      "onSale": true
     },
     {
       "id": "2",
@@ -31,6 +32,14 @@
       "category": "Furniture",
       "availability": true,
       "description": "Ergonomic chair for your workspace."
+    },
+    {
+      "id": "1114",
+      "name": "phones",
+      "price": 500,
+      "category": "electronics",
+      "description": "",
+      "availability": true
     }
   ]
 }

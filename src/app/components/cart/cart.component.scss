@@ -1,11 +1,89 @@
 .remove-button {
-    background-color: #f5f5f5; /* Default background color */
-    color: #000; /* Default text color */
-    border: 1px solid #d9d9d9; /* Default border */
-  
+    background-color: #f5f5f5; 
+    color: #000; 
+    border: 1px solid #d9d9d9; 
+    transition: all 0.3s ease;
+
     &:hover {
      
-      color: red; /* Change text color to white */
-      border-color: red; /* Change border color to red */
+      color: red; 
+      border-color: red; 
     }
   }
+
+  .empty-cart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+nz-table th, nz-table td {
+  padding: 12px; 
+  text-align: left;
+  font-size: 14px; 
+}
+
+
+@media (max-width: 768px) {
+  .cart-items {
+    overflow-x: auto; 
+  }
+
+  nz-table th, nz-table td {
+    font-size: 12px; 
+  }
+  
+ 
+  .remove-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+
+  .cart-items .ant-btn-primary {
+    width: 100%;  
+    padding: 12px;
+    font-size: 14px;
+  }
+
+ 
+  nz-input-number {
+    width: 60px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-items {
+    padding: 10px; 
+  }
+
+  nz-table th, nz-table td {
+    font-size: 10px;
+    padding: 10px;  
+  }
+
+  .remove-button {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  
+  nz-input-number {
+    width: 50px;
+  }
+
+  .cart-items h3, .cart-items .ant-btn-primary {
+    font-size: 12px;  
+    margin: 10px 0;
+  }
+
+  .table-container {
+    text-align: center; 
+  }
+}
+
+
+.table-container {
+  overflow-x: auto; 
+}
+

@@ -13,7 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
        
         <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="error-message">
           <div *ngIf="form.get('name')?.hasError('required')" style="color:red">Product Name is required.</div>
-          <div *ngIf="form.get('name')?.hasError('minlength')">Product Name must be at least 3 characters long.</div>
+          <div *ngIf="form.get('name')?.hasError('minlength')" style="color:red">Product Name must be at least 3 characters long.</div>
         </div> 
         </nz-form-control>
       </nz-form-item>
@@ -29,7 +29,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
           />
           <div *ngIf="form.get('price')?.invalid && form.get('price')?.touched" class="error-message">
             <div *ngIf="form.get('price')?.hasError('required')"style="color:red">Price is required.</div>
-            <div *ngIf="form.get('price')?.hasError('min')">Price must be a positive number.</div>
+            <div *ngIf="form.get('price')?.hasError('min')"style="color:red">Price must be a positive number.</div>
           </div>
         </nz-form-control>
       </nz-form-item>
@@ -72,20 +72,18 @@ export class AddProductFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: [this.product?.name || '', Validators.required],
-      price: [this.product?.price || '', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
+      name: [this.product?.name || '', [Validators.required, Validators.minLength(3)]],
+      price: [this.product?.price || '', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/), Validators.min(0.01)]],
       category: [this.product?.category || null, Validators.required],
       description: [this.product?.description || ''],
       availability: [this.product?.availability || true]
     });
   }
 
-  /**
-   * Validate the form and return a boolean indicating its validity.
-   */
+ 
   validateForm(): boolean {
     if (this.form.invalid) {
-      this.form.markAllAsTouched(); // Highlight errors for all fields
+      this.form.markAllAsTouched(); 
       return false;
     }
     return true;

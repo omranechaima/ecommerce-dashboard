@@ -1,41 +1,39 @@
-<!-- app.component.html -->
 <nz-layout style="height: 100%;">
-  <nz-header>
-    <div class="logo" style="float: left; color: white; font-size: 20px;">
+  <nz-header class="header" >
+    <div class="logo" class="logo">
       E-Commerce Dashboard
     </div>
-   
-    <ul nz-menu nzTheme="dark" nzMode="horizontal" class="nav-bar" >
-      <li
+    <div class="nav-bar">
+      <div
         nz-menu-item
         [routerLinkActive]="'active-menu-item'"
         [ngClass]="{ 'hovered': hoveredItem === 'products', 'nav-button': true }"
         (mouseenter)="hoveredItem = 'products'"
         (mouseleave)="hoveredItem = null"
       >
-        <a routerLink="/products">Products</a>
-      </li>
-      
-      <li
+        <a routerLink="/products" style="color: white;">Products</a>
+    </div>
+
+      <div style="display: flex;"
         nz-menu-item
         [routerLinkActive]="'active-menu-item'"
-        [ngClass]="{ 'hovered': hoveredItem === 'cart' , 'nav-button': true}"
+        [ngClass]="{ 'hovered': hoveredItem === 'cart', 'nav-button': true }"
         (mouseenter)="hoveredItem = 'cart'"
         (mouseleave)="hoveredItem = null"
       >
         <nz-badge [nzCount]="cartItemCount" [nzOverflowCount]="99">
-          <a routerLink="/cart">
+          <a routerLink="/cart" style="display: flex; align-items: center;">
             <i nz-icon nzType="shopping-cart" style="font-size: 24px; color: white;"></i>
+            <span style="margin-left: 8px; font-size: 14px; color: white;">
+              ${{ totalPrice.toFixed(2) }}
+            </span>
           </a>
         </nz-badge>
-      </li>
-    </ul>
-    
+      </div>
+    </div>
   </nz-header>
 
-  <!-- Main Content Section -->
   <div class="content" style="padding: 20px;">
-   
-    <router-outlet></router-outlet> 
- </div>
-</nz-layout> 
+    <router-outlet></router-outlet>
+  </div>
+</nz-layout>

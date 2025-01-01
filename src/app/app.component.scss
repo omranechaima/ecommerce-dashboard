@@ -1,13 +1,19 @@
+.header{
+
+display: flex;
+justify-content: space-between
+
+}
 .nav-bar{
     float: right; 
-    line-height: 64px; 
+    //line-height: 64px; 
     display: flex; 
     gap: 20px; 
     list-style-type: none;
     align-items: center;
 
     .nav-button{
-        width: 65px;
+        width: 100px;
         text-align-last: center;
     }
 }
@@ -31,4 +37,16 @@
     text-decoration: underline;
   }
 
+  .ant-layout-header {
+    padding: 0 3% 0 3%;
+  }
  
+  .logo {
+    color: white;
+    font-size: 20px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    max-width: 100%; 
+    display: inline-block; 
+  }

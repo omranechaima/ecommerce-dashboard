@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:3000/products'; // URL of mock API
+  private apiUrl = 'http://localhost:3000/products'; 
 
   constructor(private http: HttpClient) {}
 
